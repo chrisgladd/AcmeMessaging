@@ -1,0 +1,115 @@
+/**
+* Style for Home View
+**/
+
+.HomeView {
+	@include mobile-landscape {
+	}
+}
+
+.HomeLogo {
+    width: auto;
+    height: 40px;
+
+    margin: 10px 5px 10px 5px;
+
+    text-align: left;
+}
+
+.HomeLogo span{
+    top: 0px;
+    font-size: 3em;
+}
+
+.HomeInboxTop {
+    width: 40%;
+    height: 90%;
+
+    float: left;
+
+    margin: 2% 5% 0 5%;
+
+    h1 {
+        float: left;
+        margin: 0 .5em 0 0;
+        font-size: 2.1em;
+        font-weight: 900;
+    }
+}
+
+.InboxCount {
+    position: relative;
+
+    float: right;
+
+    margin: 0 0 .5em 0;
+
+    border-right: 4px solid #333;
+    border-bottom: 4px solid #333;
+    border-left: 4px solid #333;
+
+    text-align: center;
+
+    img {
+        width: 3.7em;
+        height: 2.5em;
+        
+        float: left;
+        
+        background-color: #DDD;
+        opacity: .2;
+    }
+
+    span {
+        width: 1.5em;
+        height: 1.5em;
+
+        position: absolute;
+        top: .03em;
+        left: -.05em;
+
+        color: #111;
+        font-family: Helvetica;
+        font-size: 2.6em;
+        font-weight: 900;
+    }
+}
+
+.HomeInboxUL {
+    width: 100%;
+
+    margin: 1em 0 0 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.HomeInboxLI {
+    width: 100%;
+}
+
+.HomeMsgContainer {
+    width: 100%;
+
+    padding: .5em .5em;
+
+    background: #EEE;
+
+    img {
+        width: 3.7em;
+        height: 2.5em;
+        
+        float: left;
+
+        padding: 0 .2em 0 0;
+    }
+
+    div {
+        font-family: Helvetica;
+        padding: .1em 0;
+    }
+}
+
+.HomeMsgName {
+    font-size: 1.3em;
+    font-weight: 900;
+}

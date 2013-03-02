@@ -1,0 +1,18 @@
+<div class="LoginView View">
+    <a href="#">
+        <div class="LoginLogo LogoDiv">
+            <div class="LogoLeft LogoPiece"></div>
+            <div class="LogoCenter LogoPiece"></div>
+            <div class="LogoRight LogoPiece"></div>
+        </div>
+    </a>
+	<form ng-submit="login()" id="LoginForm">
+        <label>Username
+            <input class="LoginText" type="email" ng-model="loginEmail" size="30" placeholder="Email" required>
+        </label>
+        <label>Password
+		    <input class="LoginText" type="password" ng-model="loginPass" size="30" placeholder="Password" required>
+		</label>
+        <input class="LoginBtn GreenBtn" type="submit" value="Login">
+    </form>
+</div>

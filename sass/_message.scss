@@ -1,0 +1,66 @@
+/**
+* Style for Message View
+**/
+
+.MsgView {
+	@include mobile-landscape {
+	}
+}
+
+.MsgTop {
+    width: 50%;
+    height: 90%;
+
+    margin: 3% 25% 0 25%;
+
+    text-align: left;
+    
+    h1 {
+        font-size: 1.8em;
+        font-weight: 900;
+        padding: 0 0 .25em 0;
+    }
+}
+
+#MsgForm {
+    width: 100%;
+
+    padding: 2% 2% 2.5em 2%;
+    background-color: #fff;
+
+    text-align: left;
+
+    @include border-radius(15px);
+
+    label {
+        display: block;
+        padding: .5em 0;
+    }
+
+    textarea{
+        width: 25em;
+        max-width: 100%;
+        height: 5em;
+        border: 2px inset #DDD;
+    }
+}
+
+.MsgMessage {
+    width: 96%;
+
+    margin: 2%;
+
+    border: 2px outset #AAA;
+    @include box-sizing(border-box);
+}
+
+.PreviewMsgName {
+    padding: 0 !important;
+}
+
+.SaveBtn {
+    float: right;
+
+    padding: .2em 1em;
+    margin: 0 .5em;
+}

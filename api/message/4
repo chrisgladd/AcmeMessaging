@@ -1,0 +1,15 @@
+{
+    "id" : 4,
+    "type" : {
+        "id" : 0,
+        "name" : "Birthday Wish",
+        "msg" : "Mate, Happy Birthday. To celebrate this once a year occasion we have picked the following gift: [gift]. Enjoy."
+    },
+    "firstName" : "Kate",
+    "lastName" : "Springer",
+    "gift" : {
+        "id" : 3,
+        "name" : "A Free Massage"
+    },
+    "message" : ""
+}

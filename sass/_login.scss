@@ -1,0 +1,75 @@
+/**
+* Login Panel
+*/
+
+.LoginLogo {
+    width: 20%;
+    height: 20%;
+
+    @include device {
+        width: 80%;
+        height: 20%;
+    }
+
+	@include mobile-landscape {
+	    margin: 2% auto 0 auto;
+	}
+}
+
+#LoginForm {
+    width: 30%;
+    height: 60%;
+	position: relative;
+	top: 5%;
+
+    @include device {
+		width: 80%;
+		top: 0;
+	}
+
+	@include mobile-landscape {
+	    height: 75%;
+	}
+
+	input,label {
+		color: #222;
+		font-size: 1.3em;
+		font-weight: 900;
+		font-family: 'Helvetica';
+	}
+
+	margin: 0 auto;
+}
+
+.LoginText {
+	width: 90%;
+	height: 2em;
+	
+	margin: 5%;
+	padding: 0;
+
+	@include mobile-landscape {
+	    height: 1.4em;
+	    margin: 2% 5%;
+	}
+}
+
+.LoginBtn {
+    width: 100%;
+    height: 15%;
+
+    position: relative;
+	padding: 0;
+	margin: 10% 0 0 0;
+    border: none;
+    
+    font-size: 1.6em !important;
+
+    @include device {
+        height: 20%;
+    }
+
+	@include mobile-landscape {
+	    margin: 5% 0 0 0;
+	}
+}

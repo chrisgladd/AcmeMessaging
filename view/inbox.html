@@ -1,0 +1,48 @@
+<div class="HomeView View">
+    <a href="#/home">
+        <div class="HomeLogo LogoDiv">
+            <span>Acme Email</span>
+        </div>
+    </a>
+    <div class="HomeInboxTop">
+        <h1>To Do</h1>
+        <div class="InboxCount">
+            <img ng-src="img/envelope.png"></img>
+            <span>{{(messages | filter:{sent:false}).length}}</span>
+        </div>
+        <ul class="HomeInboxUL">
+            <li ng-repeat="msg in messages | filter:{sent:false} | orderBy:orderProp" class="HomeInboxLI">
+                <a href="#/message/{{msg.id}}">
+                    <div class="HomeMsgContainer">
+                        <img ng-src="img/envelope.png"></img>
+                        <div class="HomeMsgName">To: {{msg.getName()}}</div>
+                        <div>Type: {{msg.type.name}}</div>
+                    </div>
+                </a>
+                <div class="ItemDivider"></div>
+            </li>
+            <li class="HomeActivityBuffer"></li>
+        </ul>
+    </div>
+    <div class="HomeSentTop HomeInboxTop">
+        <h1>Processed</h1>
+        <div class="InboxCount">
+            <img ng-src="img/envelope.png"></img>
+            <span>{{(messages | filter:{sent:true}).length}}</span>
+        </div>
+        <ul class="HomeInboxUL">
+            <li ng-repeat="msg in messages | filter:{sent:true}" class="HomeInboxLI">
+                <a href="#/message/{{msg.id}}">
+                    <div class="HomeMsgContainer">
+                        <img ng-src="img/envelope.png"></img>
+                        <div class="HomeMsgName">To: {{msg.getName()}}</div>
+                        <div>Type: {{msg.type.name}}</div>
+                        <div>{{msg.message}}</div>
+                    </div>
+                </a>
+                <div class="ItemDivider"></div>
+            </li>
+            <li class="HomeActivityBuffer"></li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+[
+    { 
+        "id" : 0,
+        "name" : "Birthday Wish",
+        "msg" : "Mate, Happy Birthday. To celebrate this once a year occasion we have picked the following gift: [gift]. Enjoy."
+    },
+    { 
+        "id" : 1,
+        "name" : "Congrats on the births of your child",
+        "msg" : "Whooa well done and congradulations on the birth of [babyname] on [birthdate]";
+    }
+]

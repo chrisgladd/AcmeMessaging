@@ -1,0 +1,620 @@
+/* line 17, ../../../lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* _base.scss
+ * This is the base stylesheet with common variables,
+ * framework utitlities, and custom mixins.
+ * It does not compile to .css
+ */
+/* line 17, ../../../lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/*  Basic Colors  */
+/*  Basic Gradient  */
+/*  Icon Border  */
+/*  Text Colors  */
+/*  Media Query Variables  */
+/**  
+* Animation Mixins  
+* $property: The property to animate
+* $milli: milliseconds for the animation to last
+* $easing: easing function for the animation
+* $delay: delay for the animation
+**/
+/* line 4, ../sass/screen.scss */
+html, body {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
+
+/* line 11, ../sass/screen.scss */
+body {
+  background-color: #4a91bb;
+  background-image: -webkit-gradient(radial, 50%, 0, 50%, 100, color-stop(0%, #4a91bb), color-stop(100%, #182e3b));
+  background-image: -webkit-radial-gradient(center, ellipse cover, #4a91bb 0%, #182e3b 100%);
+  background-image: -moz-radial-gradient(center, ellipse cover, #4a91bb 0%, #182e3b 100%);
+  background-image: -o-radial-gradient(center, ellipse cover, #4a91bb 0%, #182e3b 100%);
+  background-image: radial-gradient(center, ellipse cover, #4a91bb 0%, #182e3b 100%);
+}
+
+/* line 16, ../sass/screen.scss */
+a {
+  color: #222222;
+  text-decoration: none;
+}
+
+/**
+* Prevent FOUC
+*/
+/* line 24, ../sass/screen.scss */
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none;
+}
+
+/**
+* Buttons
+*/
+/* line 31, ../sass/screen.scss */
+.GreenBtn {
+  background-color: black;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #68be32), color-stop(50%, #3e9822), color-stop(51%, #1f8f0c), color-stop(100%, #45a525));
+  background-image: -webkit-linear-gradient(top, #68be32 0%, #3e9822 50%, #1f8f0c 51%, #45a525 100%);
+  background-image: -moz-linear-gradient(top, #68be32 0%, #3e9822 50%, #1f8f0c 51%, #45a525 100%);
+  background-image: -o-linear-gradient(top, #68be32 0%, #3e9822 50%, #1f8f0c 51%, #45a525 100%);
+  background-image: linear-gradient(top, #68be32 0%, #3e9822 50%, #1f8f0c 51%, #45a525 100%);
+  border: #aaaaaa 1px solid;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  text-align: center;
+  font-family: Helvetica;
+  font-weight: 900;
+  font-size: 1.3em;
+  cursor: pointer;
+}
+
+/**
+* Logo
+*/
+/* line 53, ../sass/screen.scss */
+.LogoDiv {
+  width: 100%;
+  max-width: 650px;
+  height: 100%;
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+}
+/* line 63, ../sass/screen.scss */
+.LogoDiv span {
+  position: relative;
+  top: 40%;
+  font-family: Helvetica;
+  font-size: 6em;
+  font-weight: 900;
+  color: #EEE;
+}
+
+/**
+* User Top Bar Style
+*/
+/* line 78, ../sass/screen.scss */
+.UserDiv {
+  width: auto;
+  /*250px;*/
+  height: 50px;
+  position: relative;
+  float: right;
+  margin: 5px 5px 0 0;
+  z-index: 99;
+  cursor: pointer;
+}
+/* line 88, ../sass/screen.scss */
+.UserDiv img {
+  width: 50px;
+  height: 50px;
+  float: right;
+  -webkit-border-radius: 24px;
+  -moz-border-radius: 24px;
+  -ms-border-radius: 24px;
+  -o-border-radius: 24px;
+  border-radius: 24px;
+  background: transparent url("../img/me.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  border: none;
+}
+
+/* line 104, ../sass/screen.scss */
+.UserName {
+  font-size: 1.5em;
+  font-weight: 900;
+  color: #111;
+  float: right;
+  position: relative;
+  top: 15px;
+  margin-left: 8px;
+}
+
+/* line 116, ../sass/screen.scss */
+.OpenMenu {
+  background-color: #DDD;
+  height: 200px;
+  padding: 10px;
+  border: 2px solid #29353b;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  border-radius: 15px;
+  z-index: 99;
+}
+
+/* line 127, ../sass/screen.scss */
+.UserMenu {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 55px;
+  right: 0px;
+  text-align: center;
+}
+
+/* line 138, ../sass/screen.scss */
+.UserMenuItem {
+  width: 90%;
+  height: 40px;
+  margin: 10px 5%;
+  background-color: #182e3b;
+  border: 1px solid #29353b;
+  border-top: none;
+  -moz-border-radius-bottomleft: 10px;
+  -webkit-border-bottom-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  -moz-border-radius-bottomright: 10px;
+  -webkit-border-bottom-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+/* line 152, ../sass/screen.scss */
+.UserMenuItem span {
+  position: relative;
+  top: 20%;
+  font-size: 1.3em;
+  font-family: Helvetica;
+  font-weight: 900;
+  color: #DDD;
+}
+
+/**
+* Item Lists
+*/
+/* line 167, ../sass/screen.scss */
+.ItemDivider {
+  width: 100%;
+  height: 1px;
+  background-color: #222;
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #222222), color-stop(50%, #aaaaaa), color-stop(100%, #222222));
+  background-image: -webkit-linear-gradient(left, #222222 0%, #aaaaaa 50%, #222222 100%);
+  background-image: -moz-linear-gradient(left, #222222 0%, #aaaaaa 50%, #222222 100%);
+  background-image: -o-linear-gradient(left, #222222 0%, #aaaaaa 50%, #222222 100%);
+  background-image: linear-gradient(left, #222222 0%, #aaaaaa 50%, #222222 100%);
+}
+
+/**
+* Top View
+*/
+/* line 183, ../sass/screen.scss */
+.TopView, .View {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* line 189, ../sass/screen.scss */
+.TopView {
+  position: absolute;
+  top: 0px;
+}
+
+/**
+* Splash Panel
+*/
+/* line 198, ../sass/screen.scss */
+.SplashLogo {
+  width: 90%;
+  height: 100%;
+}
+@media (max-width: 1025px) {
+  /* line 198, ../sass/screen.scss */
+  .SplashLogo {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/**
+* Import Styles For Each View
+*/
+/**
+* Login Panel
+*/
+/* line 5, ../sass/_login.scss */
+.LoginLogo {
+  width: 20%;
+  height: 20%;
+}
+@media (max-width: 1025px) {
+  /* line 5, ../sass/_login.scss */
+  .LoginLogo {
+    width: 80%;
+    height: 20%;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  /* line 5, ../sass/_login.scss */
+  .LoginLogo {
+    margin: 2% auto 0 auto;
+  }
+}
+
+/* line 19, ../sass/_login.scss */
+#LoginForm {
+  width: 30%;
+  height: 60%;
+  position: relative;
+  top: 5%;
+  margin: 0 auto;
+}
+@media (max-width: 1025px) {
+  /* line 19, ../sass/_login.scss */
+  #LoginForm {
+    width: 80%;
+    top: 0;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  /* line 19, ../sass/_login.scss */
+  #LoginForm {
+    height: 75%;
+  }
+}
+/* line 34, ../sass/_login.scss */
+#LoginForm input, #LoginForm label {
+  color: #222;
+  font-size: 1.3em;
+  font-weight: 900;
+  font-family: 'Helvetica';
+}
+
+/* line 44, ../sass/_login.scss */
+.LoginText {
+  width: 90%;
+  height: 2em;
+  margin: 5%;
+  padding: 0;
+}
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  /* line 44, ../sass/_login.scss */
+  .LoginText {
+    height: 1.4em;
+    margin: 2% 5%;
+  }
+}
+
+/* line 57, ../sass/_login.scss */
+.LoginBtn {
+  width: 100%;
+  height: 15%;
+  position: relative;
+  padding: 0;
+  margin: 10% 0 0 0;
+  border: none;
+  font-size: 1.6em !important;
+}
+@media (max-width: 1025px) {
+  /* line 57, ../sass/_login.scss */
+  .LoginBtn {
+    height: 20%;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  /* line 57, ../sass/_login.scss */
+  .LoginBtn {
+    margin: 5% 0 0 0;
+  }
+}
+
+/**
+* Style for Home View
+**/
+/* line 10, ../sass/_home.scss */
+.HomeLogo {
+  width: auto;
+  height: 40px;
+  margin: 10px 5px 10px 5px;
+  text-align: left;
+}
+
+/* line 19, ../sass/_home.scss */
+.HomeLogo span {
+  top: 0px;
+  font-size: 3em;
+}
+
+/* line 24, ../sass/_home.scss */
+.HomeInboxTop {
+  width: 40%;
+  height: 90%;
+  float: left;
+  margin: 2% 5% 0 5%;
+}
+/* line 32, ../sass/_home.scss */
+.HomeInboxTop h1 {
+  float: left;
+  margin: 0 0.5em 0 0;
+  font-size: 2.1em;
+  font-weight: 900;
+}
+
+/* line 40, ../sass/_home.scss */
+.InboxCount {
+  position: relative;
+  float: right;
+  margin: 0 0 0.5em 0;
+  border-right: 4px solid #333333;
+  border-bottom: 4px solid #333333;
+  border-left: 4px solid #333333;
+  text-align: center;
+}
+/* line 53, ../sass/_home.scss */
+.InboxCount img {
+  width: 3.7em;
+  height: 2.5em;
+  float: left;
+  background-color: #DDD;
+  opacity: .2;
+}
+/* line 63, ../sass/_home.scss */
+.InboxCount span {
+  width: 1.5em;
+  height: 1.5em;
+  position: absolute;
+  top: .03em;
+  left: -.05em;
+  color: #111;
+  font-family: Helvetica;
+  font-size: 2.6em;
+  font-weight: 900;
+}
+
+/* line 78, ../sass/_home.scss */
+.HomeInboxUL {
+  width: 100%;
+  margin: 1em 0 0 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* line 86, ../sass/_home.scss */
+.HomeInboxLI {
+  width: 100%;
+}
+
+/* line 90, ../sass/_home.scss */
+.HomeMsgContainer {
+  width: 100%;
+  padding: 0.5em 0.5em;
+  background: #EEE;
+}
+/* line 97, ../sass/_home.scss */
+.HomeMsgContainer img {
+  width: 3.7em;
+  height: 2.5em;
+  float: left;
+  padding: 0 0.2em 0 0;
+}
+/* line 106, ../sass/_home.scss */
+.HomeMsgContainer div {
+  font-family: Helvetica;
+  padding: 0.1em 0;
+}
+
+/* line 112, ../sass/_home.scss */
+.HomeMsgName {
+  font-size: 1.3em;
+  font-weight: 900;
+}
+
+/**
+* Style for Message View
+**/
+/* line 10, ../sass/_message.scss */
+.MsgTop {
+  width: 50%;
+  height: 90%;
+  margin: 3% 25% 0 25%;
+  text-align: left;
+}
+/* line 18, ../sass/_message.scss */
+.MsgTop h1 {
+  font-size: 1.8em;
+  font-weight: 900;
+  padding: 0 0 0.25em 0;
+}
+
+/* line 25, ../sass/_message.scss */
+#MsgForm {
+  width: 100%;
+  padding: 2% 2% 2.5em 2%;
+  background-color: #fff;
+  text-align: left;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  border-radius: 15px;
+}
+/* line 35, ../sass/_message.scss */
+#MsgForm label {
+  display: block;
+  padding: 0.5em 0;
+}
+/* line 40, ../sass/_message.scss */
+#MsgForm textarea {
+  width: 25em;
+  max-width: 100%;
+  height: 5em;
+  border: 2px inset #dddddd;
+}
+
+/* line 48, ../sass/_message.scss */
+.MsgMessage {
+  width: 96%;
+  margin: 2%;
+  border: 2px outset #aaaaaa;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 57, ../sass/_message.scss */
+.PreviewMsgName {
+  padding: 0 !important;
+}
+
+/* line 61, ../sass/_message.scss */
+.SaveBtn {
+  float: right;
+  padding: 0.2em 1em;
+  margin: 0 0.5em;
+}

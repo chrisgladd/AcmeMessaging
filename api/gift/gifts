@@ -1,0 +1,42 @@
+[
+    {
+        "id" : 0,
+        "name" : "A Tie"
+    },
+    {
+        "id" : 1,
+        "name" : "A Pen Set"
+    },
+    {
+        "id" : 2,
+        "name" : "A New Car"
+    },
+    {
+        "id" : 3,
+        "name" : "A Free Massage"
+    },
+    {
+        "id" : 4,
+        "name" : "A Trip To Paris"
+    },
+    {
+        "id" : 5,
+        "name" : "Personalized Golf Balls"
+    },
+    {
+        "id" : 6,
+        "name" : "New Golf Clubs"
+    },
+    {
+        "id" : 7,
+        "name" : "A Wine of the Month Subscription"
+    },
+    {
+        "id" : 8,
+        "name" : "A Jelly of the Month Subscription"
+    },
+    {
+        "id" : 9,
+        "name" : "A Sausage and Cheese Box"
+    }
+]

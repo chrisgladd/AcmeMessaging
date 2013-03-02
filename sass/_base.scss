@@ -1,0 +1,103 @@
+/* _base.scss
+ * This is the base stylesheet with common variables,
+ * framework utitlities, and custom mixins.
+ * It does not compile to .css
+ */
+@import "compass/reset";
+@import "compass/css3";
+@import "compass/utilities";
+@import "blueprint";
+
+/*  Basic Colors  */
+$comp0 : #8AB0C6; 
+$comp1 : #182E3B; 
+$base : #4A91BB;
+$comp2 : #29353B; 
+$comp3 : #366988; 
+
+/*  Basic Gradient  */
+$radial0: #AAA;
+$radial1: #555;
+$radial2: #222;
+
+
+/*  Icon Border  */
+$icon-border : #291b00;
+$icon-bg : #ffecc8;
+
+/*  Text Colors  */
+$text : #222;
+
+/*  Media Query Variables  */
+$mq-mobile-portrait		: 320px !default;
+$mq-mobile-landscape	: 480px !default;
+$mq-tablet-portrait		: 768px !default;
+$mq-tablet-landscape	: 1024px !default;
+$mq-desktop-min         : 1100px !default;
+$mq-desktop				: 1382px !default;
+ 
+ 
+// Everything up to desktop size
+@mixin device {
+	@media (max-width : $mq-tablet-landscape + 1) {
+		@content;
+	}
+}
+
+// Everything up to and including the mobile portrait
+@mixin mobile-portrait {
+	@media (max-width : $mq-mobile-portrait) {
+		@content;
+	}
+}
+
+// Everthing larger than a portrait mobile up until mobile landscape
+@mixin mobile-landscape {
+	@media only screen and (min-width : $mq-mobile-portrait + 1) and (max-width : $mq-mobile-landscape) {
+		@content;
+	}
+}
+ 
+// Larger than a landscape mobile but less than or equal to a landscape tablet
+@mixin tablet-portrait {
+	@media only screen and (min-width : $mq-mobile-landscape + 1) and (max-width : $mq-tablet-landscape - 1) {
+		@content;
+	}
+}
+ 
+//Between Tablet and Full Desktop
+@mixin tablet-to-desktop {
+	@media only screen and (min-width : $mq-tablet-portrait + 1) and (max-width : $mq-desktop-min - 1) {
+		@content;
+	}
+}
+
+// Retina screens have a 1.5 pixel ratio, not 2
+@mixin retina {
+	@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
+		@content;
+	}
+}
+
+
+/**  
+* Animation Mixins  
+* $property: The property to animate
+* $milli: milliseconds for the animation to last
+* $easing: easing function for the animation
+* $delay: delay for the animation
+**/
+@mixin setupTransition($property, $milli:1s, $easing:ease-in, $delay:0s){
+    @include transition-property($property);
+    @include transition-duration($milli);
+    @include transition-timing-function($easing);
+    @include transition-delay($delay);
+}
+
+@mixin outlineText($color:#222) {
+        text-shadow:
+            -1px -1px 0 $color,  
+            1px -1px 0 $color,
+            -1px 1px 0 $color,
+            1px 1px 0 $color;
+}
