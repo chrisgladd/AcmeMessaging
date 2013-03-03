@@ -2,7 +2,6 @@
 
 /* jasmine specs for controllers go here */
 describe('acmeMsg controllers', function() {
-
   beforeEach(function(){
     this.addMatchers({
       toEqualData: function(expected) {
@@ -92,10 +91,16 @@ describe('acmeMsg controllers', function() {
     }));
 
 
-    it('should create "user" model with user fetched from login', function() {
-      scope.login();
-      $httpBackend.flush();
-    });
+    it('should create "user" model with user fetched from  successful authentication', 
+        function() {
+            expect(scope.user).toEqual({});
+
+            scope.login();
+            $httpBackend.flush();
+
+            expect(scope.user).toEqualData(userData());
+        }
+    );
 
   });
 
@@ -132,42 +137,84 @@ describe('acmeMsg controllers', function() {
       ctrl = $controller(InboxCtrl, {$scope: scope});
     }));
 
-
     it('should create "messages" model with messages fetched from the api', function() {
         expect(scope.messages).toEqual([]);
         $httpBackend.flush();
         expect(scope.messages).toEqualData(messagesData());
     });
 
+    it('should sort the inbox by added date', function() {
+        expect(scope.inboxOrder).toBe('added');
+    });
+
+    it('should sort the processed list by sent date', function() {
+        expect(scope.procOrder).toBe('sentDate');
+    });
+
   });
 
+    describe('MsgCtrl', function(){
+        var scope, ctrl, $httpBackend,
+            msgData = function(){
+                return {
+                    "id" : 0,
+                    "type" : {
+                        "id" : 0,
+                        "name" : "Birthday Wish",
+                        "msg" : "Mate, Happy Birthday. To celebrate this once a year occasion we have picked the following gift: [gift]. Enjoy."
+                    },
+                    "firstName" : "John",
+                    "lastName" : "Smith",
+                    "gift" : {
+                        "id" : 0,
+                        "name" : "A Tie"
+                    },
+                    "message" : "",
+                    "added" : 1359900200000,
+                }
+            };
 
-  /*describe('PhoneDetailCtrl', function(){
-    var scope, $httpBackend, ctrl,
-        xyzPhoneData = function() {
-          return {
-            name: 'phone xyz',
-                images: ['image/url1.png', 'image/url2.png']
-          }
-        };
+        beforeEach(inject(
+            function(_$httpBackend_, $rootScope, $controller, $routeParams) {
+                $httpBackend = _$httpBackend_;
+                $httpBackend.expectGET('api/message/messages').respond([msgData()]);
+                $httpBackend.expectGET('api/gift/gifts').respond([]);
+                $httpBackend.expectGET('api/type/types').respond([]);
 
+                $httpBackend.expectGET('api/message/0').respond(msgData());
 
-    beforeEach(inject(function(_$httpBackend_, $rootScope, $routeParams, $controller) {
-      $httpBackend = _$httpBackend_;
-      $httpBackend.expectGET('phones/xyz.json').respond(xyzPhoneData());
+                $routeParams.messageId = '0';
+                scope = $rootScope.$new();
+                ctrl = $controller(MsgCtrl, {$scope: scope});
+            }));
 
-      $routeParams.phoneId = 'xyz';
-      scope = $rootScope.$new();
-      ctrl = $controller(PhoneDetailCtrl, {$scope: scope});
-    }));
+        it('should create "msg" model with message fetched api', 
+            function() {
+                expect(scope.msg).toEqual(undefined);
+                $httpBackend.flush();
 
+                var msg = msgData();
+                msg.fullname = 'John Smith';
+                msg.text = 'Mate, Happy Birthday. To celebrate this once a year occasion we have picked the following gift: [gift]. Enjoy.';
+                msg.requiredText = '[gift]';
 
-    it('should fetch phone detail', function() {
-      expect(scope.phone).toEqualData({});
-      $httpBackend.flush();
+                expect(scope.msg).toEqualData(msg);
+        });
 
-      expect(scope.phone).toEqualData(xyzPhoneData());
+        it('should create "gifts" model from api', 
+            function() {
+                expect(scope.gifts).toEqual(undefined);
+                $httpBackend.flush();
+
+                expect(scope.gifts).toEqualData([]);
+        });
+
+        it('should create "returnValue" model from api', 
+            function() {
+                expect(scope.returnValue).toEqual(undefined);
+                $httpBackend.flush();
+
+                expect(scope.returnValue).toEqualData("Cancel");
+        });
     });
-  });*/
-
 });

@@ -49,18 +49,22 @@ directive('appVersion', ['version', function(version) {
  * user friendly. Would require a working API to test against since the
  * response would have to by dynamic.
  */
-.directive('validName', ['Name', function(Name) {
+.directive('validName', ['Name','$timeout', function(Name, $timeout) {
     return {
         restrict: 'A',
         require: 'ngModel',
         link: function(scope, elem, attr, ngModel) {
-            Name.valid({name: ngModel.$viewValue},function(rsp){
-                ngModel.$setValidity('isBabyName', rsp.isValid);
+            attr.$observe('validName', function(value){
+                if(value){
+                    Name.valid({name: value},function(rsp){
+                        ngModel.$setValidity('invalidName', rsp.isValid);
+                    });
+                }
             });
             
             ngModel.$parsers.unshift(function(value) {
                 Name.valid({name: value},function(rsp){
-                    ngModel.$setValidity('isBabyName', rsp.isValid);
+                    ngModel.$setValidity('invalidName', rsp.isValid);
                 });
                 
                 return value;

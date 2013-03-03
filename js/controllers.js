@@ -130,20 +130,14 @@ function MsgCtrl($scope, $routeParams, $location, Data) {
         $scope.msg.fullname = $scope.msg.getName();
         $scope.msg.text = $scope.msg.type.msg;
         $scope.msg.requiredText = $scope.msg.getRequiredText();
-        $scope.birthdate = $scope.msg.getBirthdate("yyyy-MM-dd");
 
         $scope.gifts = Data.getGifts();
-        $scope.names = [];
 
         $scope.returnValue = $scope.msg.sent ? "Back" : "Cancel";
     });
 
     $scope.giftChanged = function(){
         $scope.msg.gift = Data.getGift($scope.msg.gift.id);
-    };
-
-    $scope.dateChanged = function(){
-        $scope.msg.setBirthdate($scope.birthdate);
     };
 
     $scope.send = function() {

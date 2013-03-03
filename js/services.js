@@ -190,7 +190,7 @@ factory('Type', ['$resource', function($resource){
 }]).
 factory('Name', ['$resource', function($resource){
     return $resource('api/name/:verb', {}, {
-        valid: {method:'GET', params:{verb:'valid'}},
-        complete: {method: 'GET', params:{verb: 'complete'}}
+        valid: {method:'POST', params:{verb:'valid'}},
+        complete: {method: 'POST', params:{verb: 'complete'}}
     });
 }]);
