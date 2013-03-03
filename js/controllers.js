@@ -67,12 +67,15 @@ MenuCtrl.$inject = ['$scope', '$rootScope', '$location', 'User'];
  * Controller for Splash Page Animation
  */
 function SplashCtrl($scope, $location, $timeout, $rootScope) {
+    if(D){
+        $scope.useTimer = false;
+    }
     $scope.skip = function() {
         $timeout.cancel(animTimeout);
         $location.path('/login/');
     };
 
-    var animTimeout = $timeout( $scope.skip, 1500 );
+    var animTimeout = $scope.useTimer ? $timeout( $scope.skip, 1500 ) : null;
     $rootScope.$broadcast('event:hideUser');
 }
 SplashCtrl.$inject = ['$scope', '$location', '$timeout', '$rootScope'];

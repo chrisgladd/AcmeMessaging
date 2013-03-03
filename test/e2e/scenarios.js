@@ -1,79 +1,98 @@
 'use strict';
 
-/* http://docs.angularjs.org/guide/dev_guide.e2e-testing */
+describe('Acme Messaging App', function() {
 
-describe('PhoneCat App', function() {
-
-  it('should redirect index.html to index.html#/phones', function() {
-    browser().navigateTo('../../app/index.html');
-    expect(browser().location().url()).toBe('/phones');
+  it('should redirect index.html to index.html#/', function() {
+    browser().navigateTo('../../index.html');
+    expect(browser().location().url()).toBe('/');
   });
 
+  describe('Splash View', function() {
+      beforeEach(function(){
+          browser().navigateTo("../../index.html#");
+      });
 
-  describe('Phone list view', function() {
+
+      it('should redirect on click to /login', function() {
+        element('.SplashView').click();
+        expect(browser().location().url()).toBe('/login');
+      });
+  });
+
+  describe('Login View', function() {
+      beforeEach(function(){
+          browser().navigateTo("../../index.html#/login");
+      });
+
+
+      it('should log the user in', function(){
+        input('loginEmail').enter('cmg301@gmail.com');
+        input('loginPass').enter('blkajdf');
+
+        element('.LoginBtn').click();
+
+        expect(browser().location().url()).toBe('/inbox');
+      });
+  });
+
+  describe('Inbox View', function() {
 
     beforeEach(function() {
-      browser().navigateTo('../../app/index.html#/phones');
+        browser().navigateTo('../../index.html#/inbox');
     });
 
 
-    it('should filter the phone list as user types into the search box', function() {
-      expect(repeater('.phones li').count()).toBe(20);
+    it('should load the all the messages', function() {
+      expect(repeater('.HomeInboxUL:eq(0) li').count()).toBe(6);
 
-      input('query').enter('nexus');
-      expect(repeater('.phones li').count()).toBe(1);
-
-      input('query').enter('motorola');
-      expect(repeater('.phones li').count()).toBe(8);
+      expect(repeater('.HomeProcUL li').count()).toBe(4);
     });
 
 
-    it('should be possible to control phone order via the drop down select box', function() {
-      input('query').enter('tablet'); //let's narrow the dataset to make the test assertions shorter
-
-      expect(repeater('.phones li', 'Phone List').column('phone.name')).
-          toEqual(["Motorola XOOM\u2122 with Wi-Fi",
-                   "MOTOROLA XOOM\u2122"]);
-
-      select('orderProp').option('Alphabetical');
-
-      expect(repeater('.phones li', 'Phone List').column('phone.name')).
-          toEqual(["MOTOROLA XOOM\u2122",
-                   "Motorola XOOM\u2122 with Wi-Fi"]);
-    });
-
-
-    it('should render phone specific links', function() {
-      input('query').enter('nexus');
-      element('.phones li a').click();
-      expect(browser().location().url()).toBe('/phones/nexus-s');
+    it('should render message specific links', function() {
+      element('.HomeInboxUL:eq(0) li:eq(0) a').click();
+      expect(browser().location().url()).toBe('/message/0');
     });
   });
 
-
-  describe('Phone detail view', function() {
+  describe('Message detail view', function() {
 
     beforeEach(function() {
-      browser().navigateTo('../../app/index.html#/phones/nexus-s');
+      browser().navigateTo('../../index.html#/message/0');
     });
 
 
-    it('should display nexus-s page', function() {
-      expect(binding('phone.name')).toBe('Nexus S');
+    it('should display message 0 page', function() {
+        expect(element("#MsgForm input:eq(0)").val()).toBe("0");
+        expect(element("#MsgForm input:eq(1)").val()).toBe("John Smith");
+        expect(element("#MsgForm select:eq(0)").val()).toBe("0");
     });
 
 
-    it('should display the first phone image as the main phone image', function() {
-      expect(element('img.phone').attr('src')).toBe('img/phones/nexus-s.0.jpg');
+    it('should be impossible to send the message with bad data', function() {
+        input("msg.text").enter("Bad Data");
+        element("#MsgForm input[type='submit']:eq(0)").click();
+
+        expect(browser().location().url()).toBe('/message/0');
     });
 
 
-    it('should swap main image if a thumbnail image is clicked on', function() {
-      element('.phone-thumbs li:nth-child(3) img').click();
-      expect(element('img.phone').attr('src')).toBe('img/phones/nexus-s.2.jpg');
+    it('should be possible to send the message', function() {
+        element("#MsgForm input[type='submit']:eq(0)").click();
 
-      element('.phone-thumbs li:nth-child(1) img').click();
-      expect(element('img.phone').attr('src')).toBe('img/phones/nexus-s.0.jpg');
+        expect(browser().location().url()).toBe('/inbox');
     });
+    
+
+    it('should be possible to log out', function() {
+        element('.UserDiv').click();
+
+        element('#LogoutBtn').click();
+
+        expect(browser().location().url()).toBe('/login');
+    });
+
+
   });
+
 });

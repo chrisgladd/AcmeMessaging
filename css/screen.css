@@ -269,7 +269,7 @@ a {
 /* line 116, ../sass/screen.scss */
 .OpenMenu {
   background-color: #DDD;
-  height: 200px;
+  height: 150px;
   padding: 10px;
   border: 2px solid #29353b;
   -webkit-border-radius: 15px;
@@ -336,19 +336,20 @@ a {
 /* line 182, ../sass/screen.scss */
 .ValError {
   color: #F22;
+  font-weight: 900;
 }
 
 /**
 * Top View
 */
-/* line 190, ../sass/screen.scss */
+/* line 191, ../sass/screen.scss */
 .TopView, .View {
   width: 100%;
   height: 100%;
   position: relative;
 }
 
-/* line 196, ../sass/screen.scss */
+/* line 197, ../sass/screen.scss */
 .TopView {
   position: absolute;
   top: 0px;
@@ -357,13 +358,13 @@ a {
 /**
 * Splash Panel
 */
-/* line 205, ../sass/screen.scss */
+/* line 206, ../sass/screen.scss */
 .SplashLogo {
   width: 90%;
   height: 100%;
 }
 @media (max-width: 1025px) {
-  /* line 205, ../sass/screen.scss */
+  /* line 206, ../sass/screen.scss */
   .SplashLogo {
     width: 100%;
     height: 100%;
@@ -473,7 +474,7 @@ a {
 /**
 * Style for Inbox View
 **/
-/* line 10, ../sass/_home.scss */
+/* line 10, ../sass/_inbox.scss */
 .HomeLogo {
   width: auto;
   height: 40px;
@@ -481,20 +482,20 @@ a {
   text-align: left;
 }
 
-/* line 19, ../sass/_home.scss */
+/* line 19, ../sass/_inbox.scss */
 .HomeLogo span {
   top: 0px;
   font-size: 3em;
 }
 
-/* line 24, ../sass/_home.scss */
+/* line 24, ../sass/_inbox.scss */
 .HomeInboxTop {
   width: 40%;
   height: 90%;
   float: left;
   margin: 2% 5% 0 5%;
 }
-/* line 32, ../sass/_home.scss */
+/* line 32, ../sass/_inbox.scss */
 .HomeInboxTop h1 {
   float: left;
   margin: 0 0.5em 0 0;
@@ -502,7 +503,7 @@ a {
   font-weight: 900;
 }
 
-/* line 40, ../sass/_home.scss */
+/* line 40, ../sass/_inbox.scss */
 .InboxCount {
   position: relative;
   float: right;
@@ -512,7 +513,7 @@ a {
   border-left: 4px solid #333333;
   text-align: center;
 }
-/* line 53, ../sass/_home.scss */
+/* line 53, ../sass/_inbox.scss */
 .InboxCount img {
   width: 3.7em;
   height: 2.5em;
@@ -520,7 +521,7 @@ a {
   background-color: #DDD;
   opacity: .2;
 }
-/* line 63, ../sass/_home.scss */
+/* line 63, ../sass/_inbox.scss */
 .InboxCount span {
   width: 1.5em;
   height: 1.5em;
@@ -533,7 +534,7 @@ a {
   font-weight: 900;
 }
 
-/* line 78, ../sass/_home.scss */
+/* line 78, ../sass/_inbox.scss */
 .HomeInboxUL {
   width: 100%;
   margin: 1em 0 0 0;
@@ -541,32 +542,32 @@ a {
   overflow: hidden;
 }
 
-/* line 86, ../sass/_home.scss */
+/* line 86, ../sass/_inbox.scss */
 .HomeInboxLI {
   width: 100%;
 }
 
-/* line 90, ../sass/_home.scss */
+/* line 90, ../sass/_inbox.scss */
 .HomeMsgContainer {
   width: 100%;
   padding: 0.5em 0.5em;
   background: #EEE;
 }
-/* line 97, ../sass/_home.scss */
+/* line 97, ../sass/_inbox.scss */
 .HomeMsgContainer img {
   width: 3.7em;
   height: 2.5em;
   float: left;
   padding: 0 0.2em 0 0;
 }
-/* line 106, ../sass/_home.scss */
+/* line 106, ../sass/_inbox.scss */
 .HomeMsgContainer div {
   font-family: Helvetica;
   padding: 0.1em 0;
   width: 95%;
 }
 
-/* line 113, ../sass/_home.scss */
+/* line 113, ../sass/_inbox.scss */
 .HomeMsgName {
   font-size: 1.3em;
   font-weight: 900;

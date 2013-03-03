@@ -115,7 +115,7 @@ a {
 
 .OpenMenu {
     background-color: #DDD;
-    height: 200px;
+    height: 150px;
 
     padding: 10px;
 
@@ -181,6 +181,7 @@ a {
 */
 .ValError {
     color: #F22;
+    font-weight: 900;
 }
 
 /**
@@ -217,5 +218,5 @@ a {
 * Import Styles For Each View
 */
 @import "login";
-@import "home";
+@import "inbox";
 @import "message";

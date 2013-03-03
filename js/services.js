@@ -144,10 +144,6 @@ factory('Message', ['$resource', '$filter', 'Gift', function($resource, $filter,
         return $filter('date')(this.birthdate, dateFormat || 'mediumDate');
     };
 
-    Message.prototype.setBirthdate = function(date) {
-        this.birthdate = Date.parse(date);
-    };
-
     Message.prototype.getRequiredText = function(){
         if(this.type && this.text){
             switch(this.type.id){
@@ -161,6 +157,7 @@ factory('Message', ['$resource', '$filter', 'Gift', function($resource, $filter,
             }
         }
     };
+
     Message.prototype.buildMessage = function(){
         if(this.type && this.text){
             switch(this.type.id){

@@ -18,9 +18,6 @@ angular.module('acmeMsg', ['acmeMsg.filters', 'acmeMsg.services', 'acmeMsg.direc
     $routeProvider.when('/message/:messageId', 
         {templateUrl: 'view/message.html', controller: MsgCtrl});
 
-    $routeProvider.when('/about', 
-        {templateUrl: 'view/about.html', controller: AboutCtrl});
-
     $routeProvider.otherwise({redirectTo: '/login'});
 })
 /**

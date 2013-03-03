@@ -7,11 +7,22 @@
 	<form ng-submit="login()" id="LoginForm">
         <span class="ValError" ng-show="error">{{error}}</span>
         <label>Username
-            <input class="LoginText" type="email" ng-model="loginEmail" size="30" placeholder="Email" required>
+            <input 
+            type="email" 
+            name="username" 
+            ng-model="loginEmail" 
+            required 
+            placeholder="Email" 
+            class="LoginText" />
         </label>
         <label>Password
-		    <input class="LoginText" type="password" ng-model="loginPass" size="30" placeholder="Password" required>
+            <input 
+                type="password" 
+                ng-model="loginPass" 
+                required
+                class="LoginText" 
+                placeholder="Password" />
 		</label>
-        <input class="LoginBtn GreenBtn" type="submit" value="Login">
+        <input name="login" class="LoginBtn GreenBtn" type="submit" value="Login">
     </form>
 </div>

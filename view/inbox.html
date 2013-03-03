@@ -30,7 +30,7 @@
             <img ng-src="img/envelope.png"></img>
             <span>{{(messages | filter:{sent:true}).length}}</span>
         </div>
-        <ul class="HomeInboxUL">
+        <ul class="HomeProcUL HomeInboxUL">
             <li ng-repeat="msg in messages | filter:{sent:true} | orderBy:procOrder:true" class="HomeInboxLI">
                 <a href="#/message/{{msg.id}}">
                     <div class="HomeMsgContainer">
