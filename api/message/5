@@ -12,5 +12,7 @@
         "name" : "A Tie"
     },
     "message" : "Mate, Happy Birthday. To celebrate this once a year occasion we have picked the following gift: A Tie. Enjoy.",
-    "sent" : true
+    "added" : 1359905200000,
+    "sent" : true,
+    "sentDate" : 1362273529803
 }

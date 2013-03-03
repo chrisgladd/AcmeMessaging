@@ -90,7 +90,17 @@ function LoginCtrl($scope, $location, User, $rootScope) {
 
     $scope.login = function() {
         //Authentication
-        User.logIn({user: $scope.loginEmail, pass: $scope.loginPass});
+        var promise = User.logIn({user: $scope.loginEmail, pass: $scope.loginPass});
+
+        promise.then(function(rsp) {
+            if(typeof rsp.error === "undefined"){
+                $scope.user = rsp;
+                console.log($scope.user);
+            }else{
+                $scope.status = rsp.status;
+                $scope.error = rsp.message;
+            }
+        });
     };
 
     $scope.user = User.getUser();
@@ -103,6 +113,8 @@ LoginCtrl.$inject = ['$scope', '$location', 'User', '$rootScope'];
  */
 function InboxCtrl($scope, Data) {
     $scope.messages = Data.getMessages();
+    $scope.inboxOrder = "added";
+    $scope.procOrder = "sentDate";
 }
 InboxCtrl.$inject = ['$scope', 'Data'];
 

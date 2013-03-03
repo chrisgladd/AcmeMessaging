@@ -11,7 +11,7 @@
             <span>{{(messages | filter:{sent:false}).length}}</span>
         </div>
         <ul class="HomeInboxUL">
-            <li ng-repeat="msg in messages | filter:{sent:false} | orderBy:orderProp" class="HomeInboxLI">
+            <li ng-repeat="msg in messages | filter:{sent:false} | orderBy:inboxOrder" class="HomeInboxLI">
                 <a href="#/message/{{msg.id}}">
                     <div class="HomeMsgContainer">
                         <img ng-src="img/envelope.png"></img>
@@ -31,7 +31,7 @@
             <span>{{(messages | filter:{sent:true}).length}}</span>
         </div>
         <ul class="HomeInboxUL">
-            <li ng-repeat="msg in messages | filter:{sent:true}" class="HomeInboxLI">
+            <li ng-repeat="msg in messages | filter:{sent:true} | orderBy:procOrder:true" class="HomeInboxLI">
                 <a href="#/message/{{msg.id}}">
                     <div class="HomeMsgContainer">
                         <img ng-src="img/envelope.png"></img>

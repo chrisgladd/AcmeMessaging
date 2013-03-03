@@ -52,8 +52,9 @@ factory('Data', ['$http', '$q', 'Message','Gift','Type',
                 $http.post('api/message/send',JSON.stringify(messages[id])).
                     success(function(data, status, headers, config) {
                         messages[id].sent = true;
+                        messages[id].sentDate = (new Date()).getTime();
                         //messages[id].$save();
-                        deferred.resolve("Message Send and Saved");
+                        deferred.resolve("Message Sent and Saved");
                     }).
                     error(function(data, status, headers, config){
                         deferred.reject(status);
@@ -70,8 +71,8 @@ factory('Data', ['$http', '$q', 'Message','Gift','Type',
         }
     }
 ]).
-factory('User', ['$http', '$rootScope', '$window',
-    function($http, $rootScope, $window) {
+factory('User', ['$http', '$rootScope', '$window', '$q',
+    function($http, $rootScope, $window, $q) {
         var User = {};
         if($window.sessionStorage.User){
             try{
@@ -83,21 +84,35 @@ factory('User', ['$http', '$rootScope', '$window',
 
         return {
             logIn : function(creds) {
+                var deferred = $q.defer();
+
                 $http.post('api/auth/login', creds).
-                success(function(data) {
+                success(function(data, status) {
                     User = data;
                     if(User.auth === true){
                         User.auth = true;
                         $window.sessionStorage.User = JSON.stringify(User);
                         $rootScope.$broadcast('event:loggedIn');
+                        deferred.resolve(User);
                     }else {
                         $window.sessionStorage.User = "";
                         User.auth = false;
+
+                        deferred.reject({
+                            status: status,
+                            message: 'Bad Username or Password'
+                        });
                     }
                 }).
                 error(function(data, status){
                     $rootScope.$broadcast('event:loginFailed');
+                    deferred.reject({
+                        status: status,
+                        message: data
+                    });
                 });
+
+                return deferred.promise;
             },
             logOut : function() {
                 $window.sessionStorage.User = "";

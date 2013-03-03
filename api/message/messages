@@ -13,6 +13,7 @@
             "name" : "A Tie"
         },
         "message" : "",
+        "added" : 1359900200000,
         "sent" : false
     },
     {
@@ -27,6 +28,7 @@
         "babyname" : "Sam",
         "birthdate" : 1359907200000,
         "message" : "",
+        "added" : 1359901200000,
         "sent" : false
     },
     {
@@ -41,6 +43,7 @@
         "babyname" : "Grace",
         "birthdate" : 1357228800000,
         "message" : "",
+        "added" : 1359902200000,
         "sent" : false
     },
     {
@@ -57,6 +60,7 @@
             "name" : "A Trip To Paris"
         },
         "message" : "",
+        "added" : 1359903200000,
         "sent" : false
     },
     {
@@ -73,6 +77,7 @@
             "name" : "A Free Massage"
         },
         "message" : "",
+        "added" : 1359904200000,
         "sent" : false
     },
     {
@@ -89,7 +94,9 @@
             "name" : "A Tie"
         },
         "message" : "Mate, Happy Birthday. To celebrate this once a year occasion we have picked the following gift: A Tie. Enjoy.",
-        "sent" : true
+        "added" : 1359905200000,
+        "sent" : true,
+        "sentDate" : 1362273529803
     },
     {
         "id" : 6,
@@ -103,7 +110,9 @@
         "babyname" : "John",
         "birthdate" : 1359907200000,
         "message" : "Whooa well done and congratulations on the birth of John on 1/12/2013",
-        "sent" : true
+        "added" : 1359906200000,
+        "sent" : true,
+        "sentDate" : 1362283529803
     },
     {
         "id" : 7,
@@ -117,6 +126,8 @@
         "babyname" : "Mary",
         "birthdate" : 1357228800000,
         "message" : "Whooa well done and congratulations on the birth of Mary on 2/14/2013",
-        "sent" : true
+        "added" : 1359907200000,
+        "sent" : true,
+        "sentDate" : 1362293529803
     }
 ]

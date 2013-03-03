@@ -5,6 +5,7 @@
         </div>
     </a>
 	<form ng-submit="login()" id="LoginForm">
+        <span class="ValError" ng-show="error">{{error}}</span>
         <label>Username
             <input class="LoginText" type="email" ng-model="loginEmail" size="30" placeholder="Email" required>
         </label>

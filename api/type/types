@@ -7,6 +7,6 @@
     { 
         "id" : 1,
         "name" : "Congrats on the birth of your child",
-        "msg" : "Whooa well done and congratulations on the birth of [babyname] on [birthdate]";
+        "msg" : "Whooa well done and congratulations on the birth of [babyname] on [birthdate]"
     }
 ]

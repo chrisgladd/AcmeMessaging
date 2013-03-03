@@ -10,5 +10,7 @@
     "babyname" : "John",
     "birthdate" : 1359907200000,
     "message" : "Whooa well done and congratulations on the birth of John on 1/12/2013",
-    "sent" : true
+    "added" : 1359906200000,
+    "sent" : true,
+    "sentDate" : 1362283529803
 }
