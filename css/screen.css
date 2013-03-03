@@ -378,8 +378,10 @@ a {
 */
 /* line 5, ../sass/_login.scss */
 .LoginLogo {
-  width: 20%;
-  height: 20%;
+  width: 100%;
+  height: 40px;
+  margin: 1em auto 4em auto;
+  text-align: center;
 }
 @media (max-width: 1025px) {
   /* line 5, ../sass/_login.scss */
@@ -395,7 +397,13 @@ a {
   }
 }
 
-/* line 19, ../sass/_login.scss */
+/* line 20, ../sass/_login.scss */
+.LoginLogo span {
+  top: 0px;
+  font-size: 4em;
+}
+
+/* line 25, ../sass/_login.scss */
 #LoginForm {
   width: 30%;
   height: 60%;
@@ -404,19 +412,19 @@ a {
   margin: 0 auto;
 }
 @media (max-width: 1025px) {
-  /* line 19, ../sass/_login.scss */
+  /* line 25, ../sass/_login.scss */
   #LoginForm {
     width: 80%;
     top: 0;
   }
 }
 @media only screen and (min-width: 321px) and (max-width: 480px) {
-  /* line 19, ../sass/_login.scss */
+  /* line 25, ../sass/_login.scss */
   #LoginForm {
     height: 75%;
   }
 }
-/* line 34, ../sass/_login.scss */
+/* line 40, ../sass/_login.scss */
 #LoginForm input, #LoginForm label {
   color: #222;
   font-size: 1.3em;
@@ -424,7 +432,7 @@ a {
   font-family: 'Helvetica';
 }
 
-/* line 44, ../sass/_login.scss */
+/* line 50, ../sass/_login.scss */
 .LoginText {
   width: 90%;
   height: 2em;
@@ -432,14 +440,14 @@ a {
   padding: 0;
 }
 @media only screen and (min-width: 321px) and (max-width: 480px) {
-  /* line 44, ../sass/_login.scss */
+  /* line 50, ../sass/_login.scss */
   .LoginText {
     height: 1.4em;
     margin: 2% 5%;
   }
 }
 
-/* line 57, ../sass/_login.scss */
+/* line 63, ../sass/_login.scss */
 .LoginBtn {
   width: 100%;
   height: 15%;
@@ -450,13 +458,13 @@ a {
   font-size: 1.6em !important;
 }
 @media (max-width: 1025px) {
-  /* line 57, ../sass/_login.scss */
+  /* line 63, ../sass/_login.scss */
   .LoginBtn {
     height: 20%;
   }
 }
 @media only screen and (min-width: 321px) and (max-width: 480px) {
-  /* line 57, ../sass/_login.scss */
+  /* line 63, ../sass/_login.scss */
   .LoginBtn {
     margin: 5% 0 0 0;
   }
