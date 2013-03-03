@@ -4,7 +4,7 @@ Acme Email - Message Processor
 A Simple AngularJS Demo for WeConvene.
 
 
-Built on Ubuntu with gVim, Compass, Sass and Testacular
+Built on Ubuntu using gVim, Compass, Sass and Testacular
 
 
 To Run Unit Tests:
@@ -23,6 +23,9 @@ To Run Unit Tests:
 
 To Run End to End Tests:
 ------------------
+###Browser:
+navigate to %ROOT_DIR%/test/e2e/runner.html
+
 
 ###Linux: 
 

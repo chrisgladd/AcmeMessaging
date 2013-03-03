@@ -2,23 +2,6 @@
 
 describe('Acme Messaging App', function() {
 
-  it('should redirect index.html to index.html#/', function() {
-    browser().navigateTo('../../index.html');
-    expect(browser().location().url()).toBe('/');
-  });
-
-  describe('Splash View', function() {
-      beforeEach(function(){
-          browser().navigateTo("../../index.html#");
-      });
-
-
-      it('should redirect on click to /login', function() {
-        element('.SplashView').click();
-        expect(browser().location().url()).toBe('/login');
-      });
-  });
-
   describe('Login View', function() {
       beforeEach(function(){
           browser().navigateTo("../../index.html#/login");
@@ -81,8 +64,13 @@ describe('Acme Messaging App', function() {
         element("#MsgForm input[type='submit']:eq(0)").click();
 
         expect(browser().location().url()).toBe('/inbox');
+
+        //Now check and make sure the message has been
+        //correctly refiled as processed
+        expect(repeater('.HomeInboxUL:eq(0) li').count()).toBe(5);
+
+        expect(repeater('.HomeProcUL li').count()).toBe(5);
     });
-    
 
     it('should be possible to log out', function() {
         element('.UserDiv').click();

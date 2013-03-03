@@ -65,6 +65,9 @@ factory('Data', ['$http', '$q', 'Message','Gift','Type',
             getGifts : function(){
                 return gifts;
             },
+            getGift : function(id){
+                return gifts[id];
+            },
             getTypes : function(){
                 return types;
             }

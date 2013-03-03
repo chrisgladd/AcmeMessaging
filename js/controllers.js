@@ -19,8 +19,8 @@ function MenuCtrl($scope, $rootScope, $location, User) {
         $scope.showMenu = !$scope.showMenu;
     };
 
-    $scope.back = function() {
-        window.history.back();
+    $scope.nav = function(path) {
+        $location.path('/'+path+'/');
     };
 
     $scope.logout = function() {
@@ -41,8 +41,6 @@ function MenuCtrl($scope, $rootScope, $location, User) {
         $location.path('/login/');
     };
     $scope.eventLoginRequired = function() {
-        //Save Current Location
-
         //Log the user out and ask for authentication
         User.logOut();
         $scope.loggedIn = false;
@@ -68,8 +66,9 @@ MenuCtrl.$inject = ['$scope', '$rootScope', '$location', 'User'];
  */
 function SplashCtrl($scope, $location, $timeout, $rootScope) {
     if(D){
-        $scope.useTimer = false;
+        $scope.useTimer = true;
     }
+
     $scope.skip = function() {
         $timeout.cancel(animTimeout);
         $location.path('/login/');
@@ -98,7 +97,6 @@ function LoginCtrl($scope, $location, User, $rootScope) {
         promise.then(function(rsp) {
             if(typeof rsp.error === "undefined"){
                 $scope.user = rsp;
-                console.log($scope.user);
             }else{
                 $scope.status = rsp.status;
                 $scope.error = rsp.message;
@@ -162,20 +160,3 @@ function MsgCtrl($scope, $routeParams, $location, Data) {
     };
 }
 MsgCtrl.$inject = ['$scope', '$routeParams', '$location', 'Data'];
-
-/** 
- * About Controller
- * Info about how the app was contructed
- */
-function AboutCtrl($scope){
-    $scope.list = [
-        { name: "Author", value: "Chris Gladd" },
-        { name: "OS", value: "Ubuntu 12.04" },
-        { name: "Editor", value: "gVim" },
-        { name: "Browser", value: "Chrome" },
-        { name: "Framework", value: "AngularJS 1.0.3" },
-        { name: "CSS", value: "Sass using Compass" },
-        { name: "Tested On", value: "Chrome (Desktop, iPhone), Safari (iPad, iPhone)" }
-    ];
-}
-AboutCtrl.$inject = ['$scope'];

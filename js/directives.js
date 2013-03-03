@@ -20,7 +20,7 @@ directive('appVersion', ['version', function(version) {
             ngModel.$parsers.unshift(function (viewValue) {
                 var milli = Date.parse(viewValue);
                 if (milli > 0) {
-                    //Make sure the birth data is in the past
+                    //Make sure the birth date is in the past
                     var now = (new Date()).getTime();
                     if (milli >= 0 && milli <= now) {
                         ngModel.$setValidity('isValid', true);
