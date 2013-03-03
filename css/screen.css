@@ -331,16 +331,24 @@ a {
 }
 
 /**
+* Form Styles
+*/
+/* line 182, ../sass/screen.scss */
+.ValError {
+  color: #F22;
+}
+
+/**
 * Top View
 */
-/* line 183, ../sass/screen.scss */
+/* line 190, ../sass/screen.scss */
 .TopView, .View {
   width: 100%;
   height: 100%;
   position: relative;
 }
 
-/* line 189, ../sass/screen.scss */
+/* line 196, ../sass/screen.scss */
 .TopView {
   position: absolute;
   top: 0px;
@@ -349,13 +357,13 @@ a {
 /**
 * Splash Panel
 */
-/* line 198, ../sass/screen.scss */
+/* line 205, ../sass/screen.scss */
 .SplashLogo {
   width: 90%;
   height: 100%;
 }
 @media (max-width: 1025px) {
-  /* line 198, ../sass/screen.scss */
+  /* line 205, ../sass/screen.scss */
   .SplashLogo {
     width: 100%;
     height: 100%;
@@ -455,7 +463,7 @@ a {
 }
 
 /**
-* Style for Home View
+* Style for Inbox View
 **/
 /* line 10, ../sass/_home.scss */
 .HomeLogo {
@@ -547,9 +555,10 @@ a {
 .HomeMsgContainer div {
   font-family: Helvetica;
   padding: 0.1em 0;
+  width: 95%;
 }
 
-/* line 112, ../sass/_home.scss */
+/* line 113, ../sass/_home.scss */
 .HomeMsgName {
   font-size: 1.3em;
   font-weight: 900;

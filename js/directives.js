@@ -1,40 +1,33 @@
 'use strict';
 
 /* Directives */
-angular.module('acmeMsg.directives', []).
-directive('appVersion', ['version', function(version) {
-    return function(scope, elm, attrs) {
-        elm.text(version);
-    };
-}])
+angular.module('acmeMsg.directives', [])
 .directive('validDate', function (dateFilter) {
     return {
         restrict: 'A',
         require:'ngModel',
         scope: {
-            birthdate: "=myDate"
+            msg: '=myMsg'
         },
-        link:function (scope, elm, attrs, ctrl) {
-            var dateFormat = attrs['date'] || 'MM-dd-yyyy';
+        link:function (scope, elm, attrs, ngModel) {
+            var dateFormat = attrs['valid-date'] || "yyyy-MM-dd";
 
-            ctrl.$parsers.unshift(function (viewValue) {
+            ngModel.$parsers.unshift(function (viewValue) {
                 var milli = Date.parse(viewValue);
                 if (milli > 0) {
                     //Make sure the birth data is in the past
                     var now = (new Date()).getTime();
-                    console.log(milli + " : " + now);
                     if (milli >= 0 && milli <= now) {
-                        ctrl.$setValidity('date', true);
+                        ngModel.$setValidity('isValid', true);
                         return milli;
                     }
                 }
 
-                // in all other cases it is invalid, return undefined (no model update)
-                ctrl.$setValidity('date', false);
-                return undefined;
+                ngModel.$setValidity('isValid', false);
+                return milli;
             });
 
-            ctrl.$formatters.unshift(function (modelValue) {
+            ngModel.$formatters.unshift(function (modelValue) {
                 return dateFilter(modelValue, dateFormat);
             });
         }
@@ -57,13 +50,11 @@ directive('appVersion', ['version', function(version) {
         require: 'ngModel',
         link: function(scope, elem, attr, ngModel) {
             Name.valid({name: ngModel.$viewValue},function(rsp){
-                console.log(rsp.isValid);
                 ngModel.$setValidity('isBabyName', rsp.isValid);
             });
             
             ngModel.$parsers.unshift(function(value) {
                 Name.valid({name: value},function(rsp){
-                    console.log(rsp.isValid);
                     ngModel.$setValidity('isBabyName', rsp.isValid);
                 });
                 

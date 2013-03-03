@@ -1,5 +1,5 @@
 <div class="MsgView View">
-    <a href="#/home">
+    <a href="#/inbox">
         <div class="HomeLogo LogoDiv">
             <span>Acme Email</span>
         </div>
@@ -14,19 +14,20 @@
                 <input type="text" disabled="true" ng-model="msg.fullname"></input>
             </label>
             <label ng-show="msg.gift">Gift:
-                <select ng-change="giftChanged()" ng-required="msg.gift" ng-model="msg.gift.id" ng-options="gift.id as gift.name for gift in gifts"></select>
+                <select ng-change="giftChanged()" ng-required="msg.gift" ng-model="msg.gift.id" ng-options="gift.id as gift.name for gift in gifts" ng-disabled="msg.sent"></select>
             </label>
             <label ng-show="msg.birthdate">Baby Name:
-                <input valid-name name="BabyName" type="text" ng-required="msg.birthdate" ng-model="msg.babyname" ng-invalid="BadText" placeholder="Baby Name"/>
-                <span class="ValError" ng-show="MsgForm.BabyName.$error.required">Choosing a name is required</span>
-                <span class="ValError" ng-show="MsgForm.BabyName.$error.isBabyName">Please try another name</span>
+                <input valid-name name="BabyName" type="text" ng-required="msg.birthdate" ng-model="msg.babyname" ng-invalid="BadText" placeholder="Baby Name" ng-disabled="msg.sent"/>
+                <span class="ValError" ng-show="MsgForm.BabyName.$error.required">*Choosing a name is required</span>
+                <span class="ValError" ng-show="MsgForm.BabyName.$error.isBabyName">*Name in invalid. Please try another name</span>
             </label>
             <label ng-show="msg.birthdate" class="MsgText">Birthdate:
-                <input ng-required="msg.birthdate" type="date" ng-model="birthdate" ng-change="dateChanged()"/>
+                <input valid-date="yyyy-MM-dd" name="MsgBirth" ng-disabled="msg.sent" ng-required="msg.birthdate" type="date" my-msg="msg" ng-model="msg.birthdate" ng-change="dateChanged()"/>
+                <span class="ValError" ng-show="MsgForm.MsgBirth.$error.isValid">*Date must be in the past.</span>
             </label>
             <label class="MsgText">Text:
-                <textarea name="MsgText" must-have-text="{{msg.requiredText}}" my-msg="msg" ng-model="msg.text"></textarea>
-                <span class="ValError" ng-show="MsgForm.MsgText.$error.hasRequiredText">Error, message must contain {{msg.requiredText}}</span>
+                <textarea name="MsgText" must-have-text="{{msg.requiredText}}" my-msg="msg" ng-model="msg.text" ng-disabled="msg.sent"></textarea>
+                <span class="ValError" ng-show="MsgForm.MsgText.$error.hasRequiredText">*Error, message must contain {{msg.requiredText}}</span>
             </label>
             <label>Preview:
                 <div class="MsgMessage HomeMsgContainer">
@@ -36,8 +37,8 @@
                     <div>{{msg.buildMessage()}}</div>
                 </div>
             </label>
-            <input ng-click="send()" ng-disabled="isClean() || MsgForm.$invalid" class="SaveBtn GreenBtn" type="submit" value="Send" />
-            <input ng-click="cancel()" class="SaveBtn GreenBtn" type="submit" value="Cancel" />
+            <input ng-show="!msg.sent" ng-click="send()" ng-disabled="isClean() || MsgForm.$invalid" class="SaveBtn GreenBtn" type="submit" value="Send" />
+            <input ng-click="cancel()" class="SaveBtn GreenBtn" type="submit" value="{{returnValue}}" />
         </form>
     </div>
 </div>

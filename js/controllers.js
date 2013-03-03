@@ -64,15 +64,16 @@ MenuCtrl.$inject = ['$scope', '$rootScope', '$location', 'User'];
 /**
  * Controller for Splash Page Animation
  */
-function SplashCtrl($scope, $location, $timeout) {
+function SplashCtrl($scope, $location, $timeout, $rootScope) {
     $scope.skip = function() {
         $timeout.cancel(animTimeout);
         $location.path('/login/');
     };
 
     var animTimeout = $timeout( $scope.skip, 1000 );
+    $rootScope.$broadcast('event:hideUser');
 }
-SplashCtrl.$inject = ['$scope', '$location', '$timeout'];
+SplashCtrl.$inject = ['$scope', '$location', '$timeout', '$rootScope'];
 
 /**
  * Login Controller
@@ -100,10 +101,6 @@ LoginCtrl.$inject = ['$scope', '$location', 'User', '$rootScope'];
  */
 function InboxCtrl($scope, Data) {
     $scope.messages = Data.getMessages();
-    if($scope.messages[0]){
-        console.log($scope.messages[0]);
-        console.log($scope.messages[0].sent);
-    }
 }
 InboxCtrl.$inject = ['$scope', 'Data'];
 
@@ -115,17 +112,16 @@ function MsgCtrl($scope, $routeParams, $location, Data) {
 
     promise.then(function(message) {
         $scope.msg = message;
-        $scope.isGift = ($scope.msg.type.id === 0);
-        $scope.isBaby = ($scope.msg.type.id === 1);
 
         $scope.msg.fullname = $scope.msg.getName();
         $scope.msg.text = $scope.msg.type.msg;
         $scope.msg.requiredText = $scope.msg.getRequiredText();
-        console.log($scope.msg.text);
         $scope.birthdate = $scope.msg.getBirthdate("yyyy-MM-dd");
 
         $scope.gifts = Data.getGifts();
         $scope.names = [];
+
+        $scope.returnValue = $scope.msg.sent ? "Back" : "Cancel";
     });
 
     $scope.giftChanged = function(){
@@ -140,7 +136,6 @@ function MsgCtrl($scope, $routeParams, $location, Data) {
         var promise = Data.sendMessage($scope.msg.id);
 
         promise.then(function(response){
-            console.log(typeof $scope.msg.sent);
             $location.path('/inbox/');
         },
         function(reason){

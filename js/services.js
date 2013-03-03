@@ -35,10 +35,8 @@ factory('Data', ['$http', '$q', 'Message','Gift','Type',
                 var deferred = $q.defer();
 
                 if(typeof messages[id] !== "undefined"){
-                    console.log("Cached Message");
                     deferred.resolve(messages[id]);
                 }else {
-                    console.log("Fetching Message");
                     Message.get({messageId: id}, function(data){
                         deferred.resolve(data);
                     });

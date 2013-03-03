@@ -1,0 +1,14 @@
+{
+    "id" : 7,
+    "type" : {
+        "id" : 1,
+        "name" : "Congrats on the births of your child",
+        "msg" : "Whooa well done and congratulations on the birth of [babyname] on [birthdate]"
+    },
+    "firstName" : "Emily",
+    "lastName" : "Someone",
+    "babyname" : "Mary",
+    "birthdate" : 1357228800000,
+    "message" : "Whooa well done and congratulations on the birth of Mary on 2/14/2013",
+    "sent" : true
+}
