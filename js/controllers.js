@@ -31,29 +31,31 @@ function MenuCtrl($scope, $rootScope, $location, User) {
     /**
      * Login Event Handlers
      */
-    $scope.$on('event:loggedIn', function() {
+    $scope.eventLoggedIn = function() {
         $scope.loggedIn = true;
         $scope.user = User.getUser();
         $location.path('/inbox/');
-    });
-
-    $scope.$on('event:loggedOut', function() {
+    };
+    $scope.eventLoggedOut = function() {
         $scope.loggedIn = false;
         $location.path('/login/');
-    });
-
-    $scope.$on('event:loginRequired', function() {
+    };
+    $scope.eventLoginRequired = function() {
         //Save Current Location
 
         //Log the user out and ask for authentication
         User.logOut();
         $scope.loggedIn = false;
         $location.path('/login/');
-    });
-    
-    $scope.$on('event:hideUser', function() {
+    };
+    $scope.eventHideUser = function() {
         $scope.loggedIn = false;
-    });
+    };
+
+    $scope.$on('event:loggedIn', $scope.eventLoggedIn);
+    $scope.$on('event:loggedOut', $scope.eventLoggedOut);
+    $scope.$on('event:loginRequired', $scope.eventLoginRequired);
+    $scope.$on('event:hideUser', $scope.eventHideUser);
 }
 /**
  * Protects the AngularJS injection process when the js code
@@ -70,7 +72,7 @@ function SplashCtrl($scope, $location, $timeout, $rootScope) {
         $location.path('/login/');
     };
 
-    var animTimeout = $timeout( $scope.skip, 1000 );
+    var animTimeout = $timeout( $scope.skip, 1500 );
     $rootScope.$broadcast('event:hideUser');
 }
 SplashCtrl.$inject = ['$scope', '$location', '$timeout', '$rootScope'];
@@ -88,7 +90,7 @@ function LoginCtrl($scope, $location, User, $rootScope) {
 
     $scope.login = function() {
         //Authentication
-        User.logIn();
+        User.logIn({user: $scope.loginEmail, pass: $scope.loginPass});
     };
 
     $scope.user = User.getUser();

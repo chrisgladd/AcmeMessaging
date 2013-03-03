@@ -2,6 +2,7 @@
 
 /* Services */
 angular.module('acmeMsg.services', ['ngResource']).
+value('version', '0.1').
 factory('Data', ['$http', '$q', 'Message','Gift','Type', 
     function($http, $q, Message, Gift, Type){
         var messages = [];
@@ -63,14 +64,8 @@ factory('Data', ['$http', '$q', 'Message','Gift','Type',
             getGifts : function(){
                 return gifts;
             },
-            getGift : function(id){
-                return gifts[id];
-            },
             getTypes : function(){
                 return types;
-            },
-            getType : function(id){
-                return types[id];
             }
         }
     }
@@ -87,8 +82,9 @@ factory('User', ['$http', '$rootScope', '$window',
         }
 
         return {
-            logIn : function() {
-                $http.post('api/auth/login').success(function(data) {
+            logIn : function(creds) {
+                $http.post('api/auth/login', creds).
+                success(function(data) {
                     User = data;
                     if(User.auth === true){
                         User.auth = true;
@@ -98,6 +94,9 @@ factory('User', ['$http', '$rootScope', '$window',
                         $window.sessionStorage.User = "";
                         User.auth = false;
                     }
+                }).
+                error(function(data, status){
+                    $rootScope.$broadcast('event:loginFailed');
                 });
             },
             logOut : function() {
@@ -105,10 +104,10 @@ factory('User', ['$http', '$rootScope', '$window',
                 User.auth = false;
             },
             getUser : function() {
-                return User;
+                return User || {};
             },
             isLoggedIn : function() {
-                return User.auth;
+                return User.auth || false;
             }
         }
     }
@@ -171,7 +170,7 @@ factory('Gift', ['$resource', function($resource){
 }]).
 factory('Type', ['$resource', function($resource){
     return $resource('api/type/:typeId', {}, {
-        query: {method:'GET', params:{giftId:'types'}, isArray:true}
+        query: {method:'GET', params:{typeId:'types'}, isArray:true}
     });
 }]).
 factory('Name', ['$resource', function($resource){
