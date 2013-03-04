@@ -59,16 +59,23 @@ a {
     margin: 0 auto;
 
     text-align: center;
+}
 
-    span {
-        position: relative;
-        top: 40%;
+.LogoDiv span {
+    position: relative;
+    top: 40%;
 
-        font-family: Helvetica;
-        font-size: 6em;
-        font-weight: 900;
+    font-family: Helvetica;
+    font-size: 6em;
+    font-weight: 900;
 
-        color: #EEE;
+    color: #EEE;
+
+    @include device {
+        top: 27%;
+    }
+    @include mobile-landscape {
+        top: 20%;
     }
 }
 

@@ -67,6 +67,8 @@ MenuCtrl.$inject = ['$scope', '$rootScope', '$location', 'User'];
 function SplashCtrl($scope, $location, $timeout, $rootScope) {
     if(D){
         $scope.useTimer = true;
+    }else {
+        $scope.useTimer = false;
     }
 
     $scope.skip = function() {

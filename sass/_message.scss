@@ -15,10 +15,25 @@
 
     text-align: left;
     
-    h1 {
-        font-size: 1.8em;
-        font-weight: 900;
-        padding: 0 0 .25em 0;
+    
+
+    @include device {
+        width: 92%;
+        height: auto;
+        clear: both;
+
+        margin: 3% 2% 0 2%;
+        padding: 0 0 1% 0;
+    }
+}
+
+.MsgTop h1 {
+    font-size: 1.8em;
+    font-weight: 900;
+    padding: 0 0 .25em 0;
+
+    @include device {
+        font-size: 1.5em;
     }
 }
 
@@ -26,6 +41,7 @@
     width: 100%;
 
     padding: 2% 2% 2.5em 2%;
+    margin: 0 0 .5em 0;
     background-color: #fff;
 
     text-align: left;
@@ -39,7 +55,7 @@
 
     textarea{
         width: 25em;
-        max-width: 100%;
+        max-width: 97%;
         height: 5em;
         border: 2px inset #DDD;
     }
@@ -52,6 +68,9 @@
 
     border: 2px outset #AAA;
     @include box-sizing(border-box);
+
+    font-size: .9em;
+    font-weight: 100;
 }
 
 .PreviewMsgName {

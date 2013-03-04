@@ -9,8 +9,9 @@
     text-align: center;
 
     @include device {
-        width: 80%;
+        width: 90%;
         height: 20%;
+        margin: 2% auto 0 auto;
     }
 
 	@include mobile-landscape {
@@ -20,13 +21,20 @@
 .LoginLogo span{
     top: 0px;
     font-size: 4em;
+
+    @include device {
+        font-size: 3em;
+    }
 }
 
 #LoginForm {
     width: 30%;
     height: 60%;
+
 	position: relative;
 	top: 5%;
+
+	margin: 0 auto;
 
     @include device {
 		width: 80%;
@@ -36,15 +44,17 @@
 	@include mobile-landscape {
 	    height: 75%;
 	}
+}
 
-	input,label {
-		color: #222;
-		font-size: 1.3em;
-		font-weight: 900;
-		font-family: 'Helvetica';
-	}
+#LoginForm input,label {
+    color: #222;
+    font-size: 1.3em;
+    font-weight: 900;
+    font-family: 'Helvetica';
 
-	margin: 0 auto;
+    @include device {
+        font-size: 1.1em;
+    }
 }
 
 .LoginText {
