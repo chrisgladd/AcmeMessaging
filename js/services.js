@@ -38,8 +38,9 @@ factory('Data', ['$http', '$q', 'Message','Gift','Type',
                 if(typeof messages[id] !== "undefined"){
                     deferred.resolve(messages[id]);
                 }else {
-                    Message.get({messageId: id}, function(data){
-                        deferred.resolve(data);
+                    Message.get({messageId: id}, function(msg){
+                        messages[msg.id] = msg;
+                        deferred.resolve(msg);
                     });
                 }
 
@@ -140,7 +141,7 @@ factory('Message', ['$resource', '$filter', 'Gift', function($resource, $filter,
     };
 
     Message.prototype.getFullBabyname = function() {
-        return this.babyname + " " + this.lastName;
+        return (this.babyname||"") + " " + this.lastName;
     };
 
     Message.prototype.getBirthdate = function(dateFormat) {

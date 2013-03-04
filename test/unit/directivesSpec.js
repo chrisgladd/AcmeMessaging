@@ -19,7 +19,7 @@ describe('Valid Name Directive', function() {
         scope = $rootScope.$new();
         scope.name = "Sam";
 
-        element = angular.element('<form name="TestForm"><input valid-name="{{name}}" name="TestValid" ng-model="name" type="text" /></form>');
+        element = angular.element('<form name="TestForm"><valid-name name="TestValid" ng-model="name"/></form>');
         element = $compile(element)(scope);
         scope.$digest();
     }));

@@ -2,7 +2,7 @@
     "id" : 6,
     "type" : {
         "id" : 1,
-        "name" : "Congrats on the births of your child",
+        "name" : "Congrats on the birth of your child",
         "msg" : "Whooa well done and congratulations on the birth of [babyname] on [birthdate]"
     },
     "firstName" : "Amy",

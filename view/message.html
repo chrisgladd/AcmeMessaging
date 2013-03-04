@@ -33,14 +33,12 @@
             </label>
 
             <label ng-show="msg.birthdate">Baby Name:
-                <input type="text" 
-                    name="BabyName" 
-                    valid-name="{{msg.babyname}}"
-                    ng-required="msg.birthdate" 
+                <valid-name 
+                    name="BabyName"
                     ng-model="msg.babyname" 
-                    ng-invalid="BadText" 
+                    ng-required="msg.birthdate" 
                     ng-disabled="msg.sent"
-                    placeholder="Baby Name" />
+                    placeholder="Baby Name"></valid-name>
                 <span class="ValError" 
                     ng-show="MsgForm.BabyName.$error.required">
                     *Choosing a name is required

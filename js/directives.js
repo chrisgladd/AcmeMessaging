@@ -43,31 +43,29 @@ directive('appVersion', ['version', function(version) {
  * against the server's name api. An improvement to this simple check
  * would be to have an autocomplete api (mocked up as complete in the
  * Name service) that would take in the partial name and return a list
- * of the matching names to select from a list. This would require a
- * restrict: 'E' directive but wouldn't be too hard to drop in to 
- * replace the current simple validity check and would be far more
+ * of the matching names to select from a list. This could be dropped in
+ * to replace the current simple validity check and would be far more
  * user friendly. Would require a working API to test against since the
- * response would have to by dynamic.
+ * response would have to by dynamic. Because we're using an Element 
+ * directive here, it could be done simply my altering the directive.
  */
 .directive('validName', ['Name','$timeout', function(Name, $timeout) {
     return {
-        restrict: 'A',
+        restrict: 'E',
         require: 'ngModel',
-        link: function(scope, elem, attr, ngModel) {
-            attr.$observe('validName', function(value){
-                if(value){
-                    Name.valid({name: value},function(rsp){
-                        ngModel.$setValidity('invalidName', rsp.isValid);
-                    });
-                }
-            });
-            
-            ngModel.$parsers.unshift(function(value) {
-                Name.valid({name: value},function(rsp){
-                    ngModel.$setValidity('invalidName', rsp.isValid);
-                });
-                
-                return value;
+        replace: true,
+        template: '<input type="text"' + 
+                        'ng-invalid="BadText"'+
+                        'class="vn-text" />',
+        link: function postLink(scope, elem, attr, ngModel) {
+            scope.$watch(
+                function(){ return ngModel.$viewValue },
+                function(value){
+                    if(value){
+                        Name.valid({name: value},function(rsp){
+                            ngModel.$setValidity('invalidName', rsp.isValid);
+                        });
+                    }
             });
         }
     };
