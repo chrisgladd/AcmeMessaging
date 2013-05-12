@@ -105,4 +105,95 @@ directive('appVersion', ['version', function(version) {
 
         }
     };
+}])
+.directive('wconDonutChart', [function() {
+    return {
+        restrict: 'A',
+        require: 'ngModel',
+        replace: false,
+        scope: {
+            data: '=ngModel',
+            bgColor: '@',
+            fgColor: '@',
+            size: '@',
+            donutWidth: '@',
+            textSize: '@'
+        },
+template: "<canvas width='{{size}}' height='{{size}}' style='position:absolute;left:0;top:0;'></canvas>"+
+                  "<div style='width:100%;position:absolute;top:0;left:0;line-height:{{size}}px;font-family:Arial,sans-serif;font-size:{{textSize}};font-weight:bold;text-align:center;'>{{percentText}}</div>",
+        link: function(scope, element, attrs) {
+            console.log(scope.donutWidth);
+            scope.data.percentage = scope.data.percentage || 50;
+            scope.bgColor = scope.bgColor || "transparent";
+            scope.fgColor = scope.fgColor || "#f80";
+            scope.size = scope.size || "160";
+            scope.donutWidth = scope.donutWidth || "20";
+            scope.textSize = scope.textSize || "3em";
+            console.log(scope.donutWidth);
+
+            element.css('position', 'relative');
+            element.css('width', scope.size+"px");
+            element.css('height', scope.size+"px");
+
+            scope.canvas = element.children("canvas")[0];
+            scope.ctx = scope.canvas.getContext('2d');
+
+            scope.getSettings = function() {
+                return {
+                    bgColor : scope.bgColor,
+                    fgColor : scope.fgColor,
+                    size : scope.size,
+                    donutwidth : scope.donutWidth,
+                    textSize : scope.textSize,
+                };
+            };
+
+            scope.drawBg = function(settings) {
+                console.log("DRAWING BACKGROUND");
+                console.log(settings);
+                scope.ctx.clearRect(0,0,settings.size,settings.size);
+                scope.ctx.beginPath();
+                scope.ctx.fillStyle = settings.bgColor;
+                scope.ctx.arc(settings.size/2,settings.size/2,settings.size/2,0,2*Math.PI,false);
+                scope.ctx.arc(settings.size/2,settings.size/2,settings.size/2-settings.donutwidth,0,2*Math.PI,true);
+                scope.ctx.fill();
+            };
+
+            scope.drawFg = function(settings, percent){
+                console.log("DRAWING FOREGROUND");
+                console.log(settings);
+                var ratio = percent/100 * 360;
+                var startAngle = Math.PI*-90/180;
+                var endAngle = Math.PI*(-90+ratio)/180;
+
+                scope.ctx.beginPath();
+                scope.ctx.fillStyle = settings.fgColor;
+                scope.ctx.arc(settings.size/2,settings.size/2,settings.size/2,startAngle,endAngle,false);
+                scope.ctx.arc(settings.size/2,settings.size/2,settings.size/2-settings.donutwidth,endAngle,startAngle,true);
+                scope.ctx.fill();
+            };
+
+            scope.animate = function() {
+                scope.$apply(function(){
+                    scope.current++;
+                    scope.percentText = scope.current+"%";
+                });
+
+                scope.drawBg(scope.getSettings());
+                scope.drawFg(scope.getSettings(), scope.current);
+                if (scope.current >= scope.data.percentage) {
+                    clearInterval(scope.animInterval);
+                }
+            };
+
+            scope.startAnimate = function(){
+                scope.current = 0;
+                scope.percentText = scope.current+"%";
+                scope.ctx = scope.canvas.getContext('2d');
+                scope.animInterval = setInterval(scope.animate,20); 
+            };
+
+            scope.startAnimate();
+        }
+    };
 }]);

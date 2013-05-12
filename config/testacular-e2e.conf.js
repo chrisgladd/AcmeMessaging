@@ -8,12 +8,12 @@ files = [
 
 autoWatch = false;
 
-browsers = ['Chrome'];
+browsers = ['PhantomJS'];//'Chrome'];
 
 singleRun = true;
 
 proxies = {
-  '/': 'http://localhost/msg/'//http://localhost:8000/'
+  '/': 'http://localhost:8000/'//'http://localhost/msg'
 };
 
 junitReporter = {

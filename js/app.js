@@ -2,12 +2,12 @@
 
 
 // Declare app level module which depends on filters, and services
-angular.module('acmeMsg', ['acmeMsg.filters', 'acmeMsg.services', 'acmeMsg.directives'])
+angular.module('acmeMsg', ['acmeMsg.filters', 'acmeMsg.services', 'acmeMsg.directives', 'wcon.services.photo'])
 .config(function($routeProvider, $locationProvider) {
-    //$locationProvider.html5Mode(true);
+    $locationProvider.html5Mode(true);
 
     $routeProvider.when('/', 
-        {templateUrl: 'view/splash.html', controller: SplashCtrl});
+        {templateUrl: 'view/photo.html', controller: PhotoCtrl});
 
     $routeProvider.when('/login', 
         {templateUrl: 'view/login.html', controller: LoginCtrl});

@@ -194,4 +194,13 @@ factory('Name', ['$resource', function($resource){
         valid: {method:'POST', params:{verb:'valid'}},
         complete: {method: 'POST', params:{verb: 'complete'}}
     });
+}]).
+factory('$interval', [function(){
+    return {
+        setInterval : function(callback, milli){
+
+        },
+        clearInterval : function(reference){
+        }
+    };
 }]);

@@ -118,6 +118,10 @@ function InboxCtrl($scope, Data) {
     $scope.messages = Data.getMessages();
     $scope.inboxOrder = "added";
     $scope.procOrder = "sentDate";
+
+    $scope.donut = {
+        percentage : 50
+    };
 }
 InboxCtrl.$inject = ['$scope', 'Data'];
 
